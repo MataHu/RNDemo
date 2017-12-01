@@ -1,0 +1,15 @@
+//
+//  MainBarViewController.h
+//  ZJNews
+//
+//  Created by admin on 17/5/12.
+//  Copyright © 2017年 Bella. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "IINavigationController.h"
+
+@interface MainBarViewController : UITabBarController
+@property (nonatomic, assign) NSInteger preSlectedIndex ;
+
+@end

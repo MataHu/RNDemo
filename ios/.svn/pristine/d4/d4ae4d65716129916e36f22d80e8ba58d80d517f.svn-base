@@ -1,0 +1,50 @@
+//
+//  RenZhengViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "RenZhengViewController.h"
+
+@interface RenZhengViewController ()
+
+@end
+
+@implementation RenZhengViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"认证";
+    
+}
+
+#pragma mark UITableViewDelegate
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *sectionView = [[UIView alloc] init];
+    
+    if (section == 0) {
+        UILabel *mustAdd = [[UILabel alloc] init];
+        mustAdd.text = @"必填信息项";
+        mustAdd.textColor = UIColorFromRGB(0x4D4D4D);
+        mustAdd.font = PingFangFont(15);
+        mustAdd.x = 26;
+        mustAdd.centerY = sectionView.centerY;
+        [mustAdd sizeToFit];
+        [sectionView addSubview:mustAdd];
+        return sectionView;
+    }
+    UILabel *optionAdd = [[UILabel alloc] init];
+    optionAdd.text = @"可选信息项";
+    optionAdd.textColor = UIColorFromRGB(0x4D4D4D);
+    optionAdd.font = PingFangFont(15);
+    optionAdd.x = 26;
+    optionAdd.centerY = sectionView.centerY;
+    [optionAdd sizeToFit];
+    [sectionView addSubview:optionAdd];
+    
+    return sectionView;
+}
+
+@end

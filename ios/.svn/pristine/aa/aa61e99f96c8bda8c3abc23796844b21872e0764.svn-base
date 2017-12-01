@@ -1,0 +1,32 @@
+//
+//  JRJCoverView.m
+//  CaiFuTong
+//
+//  Created by Franky on 2016/12/21.
+//  Copyright © 2016年 HuanRong. All rights reserved.
+//
+
+#import "JRJCoverView.h"
+
+@implementation JRJCoverView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        self.backgroundColor = [UIColor blackColor];
+        self.alpha = 0;
+        
+    }
+    return self;
+}
+
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    if ([self.delegate respondsToSelector:@selector(touchTheCoverView:)]) {
+        [self.delegate touchTheCoverView:self];
+    }
+}
+
+@end

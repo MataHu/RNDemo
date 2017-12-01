@@ -1,0 +1,33 @@
+//
+//  PickViewToolViewController.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/18.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@protocol PickViewToolViewControllerDegate<NSObject>
+/**
+ 取消选择
+ */
+- (void)cancelSelected;
+/**
+ 确认选择
+ */
+- (void)confirmlSelectedWithSelectTitle1:(NSString *)title1 andSelectTitle2:(NSString *)title2;
+
+
+@end
+
+@interface PickViewToolViewController : UIViewController
+@property (nonatomic, weak) id<PickViewToolViewControllerDegate> delegate;
+/**
+ 表盘数
+ */
+@property (nonatomic, assign) NSInteger numberOfComponents;
+@property (nonatomic, strong) NSMutableArray *dataArr1;
+@property (nonatomic, strong) NSMutableArray *dataArr2;
+
+@end

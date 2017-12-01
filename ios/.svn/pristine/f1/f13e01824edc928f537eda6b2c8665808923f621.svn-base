@@ -1,0 +1,43 @@
+//
+//  RealNameViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "RealNameViewController.h"
+#import "PerfectInformationViewController.h"
+
+@interface RealNameViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+
+@end
+
+@implementation RealNameViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"实名认证";
+    self.confirmBtn.layer.cornerRadius = 5;
+    self.confirmBtn.layer.masksToBounds = YES;
+
+}
+/**
+ 确认
+ */
+- (IBAction)confirmClick:(id)sender {
+    
+    WEAK_SELF
+    [AlertTool alertWithTipMessage:@"认证成功" BtnTitle1:@"取消" AndMethodCallBack1:^{
+        NSLog(@"保存信息成功");
+    } BtnTitle2:@"确定" AndMethodCallBack2:^{
+        PerfectInformationViewController *perfecVc = [[PerfectInformationViewController alloc] init];
+        [weakSelf.navigationController pushViewController:perfecVc animated:YES];
+        
+    }];
+}
+
+
+
+@end

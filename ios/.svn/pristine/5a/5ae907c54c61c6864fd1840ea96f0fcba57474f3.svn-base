@@ -1,0 +1,72 @@
+//
+//  BorrowDetailViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/21.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "BorrowDetailViewController.h"
+
+@interface BorrowDetailViewController ()
+@property (weak, nonatomic) IBOutlet UIView *detailView;
+@property (weak, nonatomic) IBOutlet UILabel *loanPeriodLabel;
+@property (weak, nonatomic) IBOutlet UIButton *stateBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *detailViewHeight;
+
+@end
+
+@implementation BorrowDetailViewController
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    //设置navgationbar背景图片(透明)
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0]] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationItem.title = @"借款详情";
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.detailView.layer.cornerRadius = 5;
+    self.detailView.layer.masksToBounds = YES;
+    self.stateBtn.layer.cornerRadius = 5;
+    self.stateBtn.layer.masksToBounds = YES;
+    
+    //富文本改变字体大小
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:@"14天" attributes:nil];
+    [attStr addAttribute:NSFontAttributeName value:PingFangFont(18) range:NSMakeRange(attStr.length - 1, 1)];
+    self.loanPeriodLabel.attributedText = attStr;
+    
+    if (WIDTH == 320) {
+        self.detailViewHeight.constant = 340;
+    }
+    
+}
+/**
+ 状态按钮点击事件
+ */
+- (IBAction)stateBtnClick:(id)sender {
+    
+}
+/**
+ 问题提示
+ */
+- (IBAction)question:(id)sender {
+    [AlertTool alertRepayPeriodWithSubmitData:@"2017年08月23日" ExhaustingData:@"2017年08月25日" RepayData:@"2017年09月08日"];
+}
+@end

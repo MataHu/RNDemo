@@ -1,0 +1,146 @@
+//
+//  HomePageViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "HomePageViewController.h"
+
+@interface HomePageViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *borrowMoneyBtn;
+
+//适配用
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *adImageHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toAdImageHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *borrowMoneyBottom;
+
+/**
+ 贷款金额500
+ */
+@property (weak, nonatomic) IBOutlet UIButton *FiveHundredloanAmountBtn;
+/**
+ 贷款金额1000
+ */
+@property (weak, nonatomic) IBOutlet UIButton *OnethousandloanAmountBtn;
+/**
+ 贷款期限7天
+ */
+@property (weak, nonatomic) IBOutlet UIButton *sevenDay;
+/**
+ 贷款期限14天
+ */
+@property (weak, nonatomic) IBOutlet UIButton *fourteenDay;
+
+
+@end
+//字体颜色
+static NSInteger normalTexColor = 0x808080;
+static NSInteger selTexColor = 0x5BB69A;
+
+//边角颜色
+static NSInteger normalBorderColor = 0xC2C2C2;
+static NSInteger selBorderColor = 0x1ABC9C;
+
+
+@implementation HomePageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"花花贷";
+    //适配（比例）
+    self.adImageHeight.constant = WIDTH * 346 / 750;
+    if (WIDTH == 320) {
+        self.toAdImageHeight.constant = 30;
+        self.borrowMoneyBottom.constant = 20;
+    }
+    //设置圆角
+    [self setCornerRadius];
+    
+    //设置按钮状态
+    [self setButtonState];
+    
+}
+/**
+ 贷款额度
+ */
+- (IBAction)loanAmountSelect:(UIButton *)sender {
+    if (sender.tag == 500) {
+        [self modifyBtnState:self.FiveHundredloanAmountBtn WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+        [self modifyBtnState:self.OnethousandloanAmountBtn WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+
+    } else if (sender.tag == 1000) {
+        
+        [self modifyBtnState:self.FiveHundredloanAmountBtn WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+        [self modifyBtnState:self.OnethousandloanAmountBtn WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+        
+    }
+}
+/**
+ 贷款期限
+ */
+- (IBAction)loadTimeLimit:(UIButton *)sender {
+    if (sender.tag == 7) {
+        [self modifyBtnState:self.sevenDay WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+         [self modifyBtnState:self.fourteenDay WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+        
+
+    } else if (sender.tag == 14) {
+        [self modifyBtnState:self.sevenDay WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+        [self modifyBtnState:self.fourteenDay WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+        
+    }
+}
+
+/**
+ 修改按钮的颜色和背景图片
+ @param btn 按钮
+ @param texColor 字体颜色
+ @param borderColor 边角颜色
+ */
+- (void)modifyBtnState:(UIButton *)btn  WithTexColor:(NSInteger )texColor AndBorderColor:(NSInteger )borderColor AndBackGroundImage:(UIImage *)image{
+    [btn setTitleColor:UIColorFromRGB(texColor) forState:(UIControlStateNormal)];
+    [btn setBackgroundImage:image forState:(UIControlStateNormal)];
+    ViewBorder(btn, 1, UIColorFromRGB(borderColor));
+}
+/**
+ 设置圆角
+ */
+-(void)setCornerRadius {
+    self.borrowMoneyBtn.layer.cornerRadius = 5;
+    self.borrowMoneyBtn.layer.masksToBounds = YES;
+    
+    self.sevenDay.layer.cornerRadius = 3;
+    self.sevenDay.layer.masksToBounds = YES;
+    
+    self.fourteenDay.layer.cornerRadius = 3;
+    self.fourteenDay.layer.masksToBounds = YES;
+    
+    self.FiveHundredloanAmountBtn.layer.cornerRadius = 3;
+    self.FiveHundredloanAmountBtn.layer.masksToBounds = YES;
+    
+    self.OnethousandloanAmountBtn.layer.cornerRadius = 3;
+    self.OnethousandloanAmountBtn.layer.masksToBounds = YES;
+    
+}
+/**
+ 设置按钮状态
+ */
+- (void)setButtonState {
+    //默认选择500，14天
+    [self modifyBtnState:self.FiveHundredloanAmountBtn WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+    [self modifyBtnState:self.fourteenDay WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+    
+    [self modifyBtnState:self.OnethousandloanAmountBtn WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+    [self modifyBtnState:self.sevenDay WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+ 
+}
+/**
+ 我要借钱
+ */
+- (IBAction)borrowMoney:(id)sender {
+    NSLog(@"我要借钱");
+}
+
+@end

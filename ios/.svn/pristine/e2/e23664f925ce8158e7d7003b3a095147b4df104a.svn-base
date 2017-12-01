@@ -1,0 +1,23 @@
+//
+//  MessageViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "MessageViewController.h"
+
+@interface MessageViewController ()
+
+@end
+
+@implementation MessageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"消息";
+}
+
+
+@end

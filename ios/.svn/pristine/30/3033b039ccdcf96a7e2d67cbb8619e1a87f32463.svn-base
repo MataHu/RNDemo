@@ -1,0 +1,26 @@
+//
+//  MineViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "MineViewController.h"
+
+@interface MineViewController ()
+
+@end
+
+@implementation MineViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor blueColor];
+    self.navigationItem.title = @"我的";
+
+}
+
+
+
+@end

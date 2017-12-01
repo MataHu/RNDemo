@@ -1,0 +1,31 @@
+//
+//  PerfectInformationViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "PerfectInformationViewController.h"
+
+@interface PerfectInformationViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+
+@end
+
+@implementation PerfectInformationViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"完善信息";
+    self.submitBtn.layer.cornerRadius = 5;
+    self.submitBtn.layer.masksToBounds = YES;
+    
+}
+/**
+ 提交
+ */
+- (IBAction)submitClick:(id)sender {
+    
+}
+@end

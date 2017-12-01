@@ -1,0 +1,69 @@
+//
+//  Util.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "Util.h"
+#import "HomePageViewController.h"
+#import "IINavigationController.h"
+#import "AppDelegate.h"
+#import "MainBarViewController.h"
+#import "PickViewToolViewController.h"
+#import "FeedBackViewController.h"
+
+
+@implementation Util
+/**
+ 切换根控制器到首页
+ */
++(void)changeWindowRootViewControllerToHomePageViewController {
+    MainBarViewController *mainVc = [[MainBarViewController alloc] init];
+    AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegate.window.rootViewController = mainVc;
+    [appdelegate.window makeKeyAndVisible];
+}
+/**
+ 添加模糊层
+ */
++(void)addFuzzyLayer {
+    
+}
+
++(void)addPickViewWithNumberOfComponents:(NSInteger )numOfComponents AndDataArr:(NSMutableArray *)dataArr InController:(UIViewController *)vc AndControllerType:(pickViewType)picKViewType{
+   
+    // 创建蒙版
+    JRJCoverView *coverView = [[JRJCoverView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    coverView.backgroundColor = [UIColor blackColor];
+    coverView.alpha = 0;
+    [[UIApplication sharedApplication].keyWindow addSubview:coverView];
+    
+    //添加pickView
+    PickViewToolViewController *pickVc = [[PickViewToolViewController alloc] init];
+    pickVc.numberOfComponents = numOfComponents;
+    pickVc.dataArr1 = dataArr;
+    pickVc.view.frame = CGRectMake(0, 0, WIDTH, HEIGHT);
+    [[UIApplication sharedApplication].keyWindow addSubview:pickVc.view];
+    
+    //统一设置代理属性登
+    if (picKViewType == feedBack) {
+        FeedBackViewController *feedVc = (FeedBackViewController *)vc;
+        feedVc.coverView = coverView;
+        pickVc.delegate = feedVc;
+        feedVc.pickVc = pickVc;
+
+    } else {
+        //其他页面调用
+    }
+    // 动画
+    [UIView animateWithDuration:0.25 animations:^{
+        coverView.alpha = 0.55;
+        pickVc.view.alpha = 1;
+    } completion:^(BOOL finished) {
+        //        sender.hidden = YES;
+    }];
+}
+
+@end

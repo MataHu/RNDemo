@@ -1,0 +1,47 @@
+//
+//  AboutUsViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/18.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "AboutUsViewController.h"
+#import "ConnectUsViewController.h"
+#import "AboutJuHeViewController.h"
+
+@interface AboutUsViewController ()
+@property (weak, nonatomic) IBOutlet UIView *connectUsView;
+@property (weak, nonatomic) IBOutlet UIView *aboutUsView;
+
+@end
+
+@implementation AboutUsViewController
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    self.navigationItem.title = @"关于我们";
+
+    UITapGestureRecognizer *contapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(connectUs)];
+    [self.connectUsView addGestureRecognizer:contapGes];
+    
+    UITapGestureRecognizer *abouttapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(aboutJuHe)];
+    [self.aboutUsView addGestureRecognizer:abouttapGes];
+ 
+}
+/**
+ 联系我们
+ */
+- (void)connectUs {
+    ConnectUsViewController *connectVc = [[ConnectUsViewController alloc] init];
+    [self.navigationController pushViewController:connectVc animated:YES];
+}
+/**
+ 关于炬合
+ */
+- (void)aboutJuHe {
+    AboutJuHeViewController *aboutJuHeVc = [[AboutJuHeViewController alloc] init];
+    [self.navigationController pushViewController:aboutJuHeVc animated:YES];
+}
+@end

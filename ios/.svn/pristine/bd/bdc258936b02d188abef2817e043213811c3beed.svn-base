@@ -1,0 +1,122 @@
+//
+//  PickViewToolViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/18.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "PickViewToolViewController.h"
+
+@interface PickViewToolViewController ()<UIPickerViewDelegate,UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UIPickerView *pickView;
+@property (nonatomic, strong) JRJCoverView *coverView;
+@property (nonatomic, copy) NSString *title1;
+@property (nonatomic, copy) NSString *title2;
+
+@end
+
+@implementation PickViewToolViewController
+-(void)dealloc {
+    
+}
+-(NSMutableArray *)dataArr1 {
+    if (_dataArr1 == nil) {
+        _dataArr1 = [NSMutableArray array];
+    }
+    return _dataArr1;
+}
+-(NSMutableArray *)dataArr2 {
+    if (_dataArr2 == nil) {
+        _dataArr2 = [NSMutableArray array];
+    }
+    return _dataArr2;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor clearColor];
+   
+}
+/**
+ 取消
+ */
+- (IBAction)cancel:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(cancelSelected)]) {
+        [self.delegate cancelSelected];
+    }
+}
+/**
+ 确定
+ */
+- (IBAction)confirm:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(confirmlSelectedWithSelectTitle1:andSelectTitle2:)]) {
+        [self.delegate confirmlSelectedWithSelectTitle1:self.title1 andSelectTitle2:self.title2];
+    }
+}
+
+#pragma mark UIPickerViewDelegate,UIPickerViewDataSource
+//有几个表盘（component）
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return self.numberOfComponents;
+    
+}
+//每个表盘有几行数据（rows）
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+//    NSInteger rows = 0;
+//    switch (component) {
+//        case 0:
+//            rows = self.provinces.count;
+//            //根据plist文件中的数据返回rows
+//        break;
+//        case 1:
+//        rows = self.cities.count;
+//        break;
+//        default:
+//        break;
+//
+//    }
+    return self.dataArr1.count;
+    
+}
+//每行的标题
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString * title = nil;
+    title = self.dataArr1[row];
+//    switch (component) {
+//        case 0:
+//        title = self.provinces[row][@"State"];
+//        break;
+//        case 1:
+//        title = self.cities[row][@"city"];
+//        break;
+//        default:
+//        break;
+//
+//    }
+    return title;
+    
+}
+//选中时回调的委托方法，在此方法中实现省份和城市间的联动
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    switch (component) {
+        case 0:
+            //选中省份表盘时，根据row的值改变城市数组，刷新城市数组，实现联动
+//            self.cities = self.provinces[row][@"Cities"];
+//            [self.pickView reloadComponent:1];
+            break;
+        case 1:
+//            self.label.text = [NSString stringWithFormat:@"%@%@",
+//            self.provinces[[self.pickView selectedRowInComponent:0]][@"State"],self.cities[[self.pickerView selectedRowInComponent:1]][@"city"]];//如果选中第二个
+        break;
+        default:
+        break;
+            
+    }
+    
+}
+
+
+
+
+@end

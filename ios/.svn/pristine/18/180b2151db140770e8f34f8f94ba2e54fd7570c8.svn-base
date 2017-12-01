@@ -1,0 +1,15 @@
+//
+//  PerfectInformationViewController.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface PerfectInformationViewController : UIViewController<PickViewToolViewControllerDegate>
+@property (strong, nonatomic)  PickViewToolViewController *pickVc;
+@property (nonatomic, strong) JRJCoverView *coverView;
+
+@end

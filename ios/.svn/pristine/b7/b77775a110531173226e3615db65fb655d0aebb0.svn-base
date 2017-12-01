@@ -1,0 +1,26 @@
+//
+//  BorrowSuccessMidView.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/21.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "HasPriceMidView.h"
+
+@interface HasPriceMidView()
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+@end
+
+@implementation HasPriceMidView
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
+    self.bgView.layer.cornerRadius = 5;
+    self.bgView.layer.masksToBounds = YES;
+}
+
+
+@end

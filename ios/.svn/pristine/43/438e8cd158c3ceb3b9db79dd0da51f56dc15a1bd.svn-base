@@ -1,0 +1,22 @@
+//
+//  JRJCoverView.h
+//  CaiFuTong
+//
+//  Created by Franky on 2016/12/21.
+//  Copyright © 2016年 HuanRong. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@class JRJCoverView;
+@protocol JRJCoverViewDelegate <NSObject>
+
+- (void)touchTheCoverView:(JRJCoverView *)coverView;
+
+@end
+
+@interface JRJCoverView : UIView
+
+@property (nonatomic, weak) id<JRJCoverViewDelegate> delegate;
+
+@end

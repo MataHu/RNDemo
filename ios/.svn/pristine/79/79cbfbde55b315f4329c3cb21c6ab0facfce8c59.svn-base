@@ -1,0 +1,54 @@
+//
+//  AlertViewController.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AlertViewController : UIViewController
+
+/**
+ 1:单按钮提示 2:两个按钮提示 3:忘记服务密码 4:关于还款日期
+ */
+@property (nonatomic, assign) NSInteger btnNumber;
+@property (nonatomic, strong) JRJCoverView *coverView;
+
+/**
+ 提示语
+ */
+@property (nonatomic, copy) NSString *tipMessage;
+/**
+ 第一个按钮标题
+ */
+@property (nonatomic, copy) NSString *title1;
+/**
+ 第二个按钮标题
+ */
+@property (nonatomic, copy) NSString *title2;
+
+/**
+ 第一个按钮点击事件
+ */
+@property (nonatomic, copy) void (^btnCallBack1)();
+/**
+ 第二个按钮点击事件
+ */
+@property (nonatomic, copy) void (^btnCallBack2)();
+
+
+//关于还款日期
+@property (nonatomic, copy) NSString *date1;
+
+@property (nonatomic, copy) NSString *date2;
+
+@property (nonatomic, copy) NSString *date3;
+
+/**
+ 更新标题信息
+ */
+-(void)updateTitle;
+
+@end

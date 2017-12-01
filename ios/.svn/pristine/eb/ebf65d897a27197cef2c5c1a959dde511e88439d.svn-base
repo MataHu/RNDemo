@@ -1,0 +1,66 @@
+//
+//  PhoneOperatoViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/20.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "PhoneOperatoViewController.h"
+#import "agreeTipLabel.h"
+
+@interface PhoneOperatoViewController ()<agreeTipLabelDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *getMessageCodeBtn;
+@property (weak, nonatomic) IBOutlet agreeTipLabel *agreeTipLabel;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tipTop;
+
+@end
+
+@implementation PhoneOperatoViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.navigationItem.title = @"手机认证";
+    ViewBorder(self.getMessageCodeBtn, 1, UIColorFromRGB(0x1ABC9C));
+    self.getMessageCodeBtn.layer.cornerRadius = 5;
+    self.getMessageCodeBtn.layer.masksToBounds = YES;
+    
+    self.confirmBtn.layer.cornerRadius = 5;
+    self.confirmBtn.layer.masksToBounds = YES;
+    
+    self.agreeTipLabel.delegate = self;
+    if (WIDTH == 320) {
+        self.tipTop.constant = 35;
+    }
+}
+/**
+ 打电话
+ */
+- (IBAction)callPhone:(id)sender {
+    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"0517-28121621"];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
+/**
+ 获取验证码
+ */
+- (IBAction)getMessageCode:(id)sender {
+    
+}
+/**
+ 忘记密码
+ */
+- (IBAction)forgetPassword:(id)sender {
+    [AlertTool alertForgetServicePassword];
+}
+
+#pragma agreeTipLabelDelegate
+- (void)touchMyLabel:(tipLabel *)myLabel {
+    NSLog(@"已阅读及同意《运营商授权协议》");
+}
+
+
+@end

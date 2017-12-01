@@ -1,0 +1,39 @@
+//
+//  MessageViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "MessageViewController.h"
+
+@interface MessageViewController ()
+
+@end
+
+@implementation MessageViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"消息中心";
+    self.tableView.tableFooterView = [[UIView alloc] init];
+
+    
+}
+
+#pragma mark UITableViewDelegate
+/**
+ 设置尾部和头部背景颜色
+ */
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
+
+{
+    view.tintColor = UIColorFromRGB(0xEFEFEF);
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *sectionView = [[UIView alloc] init];
+    sectionView.backgroundColor = UIColorFromRGB(0xEFEFEF);    
+    return sectionView;
+}
+@end

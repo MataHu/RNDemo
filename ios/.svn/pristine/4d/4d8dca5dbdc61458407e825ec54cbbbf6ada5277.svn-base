@@ -1,0 +1,15 @@
+//
+//  FeedBackViewController.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/18.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "PickViewToolViewController.h"
+
+@interface FeedBackViewController : UIViewController<PickViewToolViewControllerDegate>
+@property (strong, nonatomic)  PickViewToolViewController *pickVc;
+@property (nonatomic, strong) JRJCoverView *coverView;
+@end

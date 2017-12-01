@@ -1,0 +1,21 @@
+//
+//  tipLabel.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+@class tipLabel;
+
+@protocol tipLabelDelegate <NSObject>
+
+@required
+- (void)touchMyLabel:(tipLabel *)myLabel;
+
+@end
+@interface tipLabel : UILabel
+@property (nonatomic, weak) id<tipLabelDelegate> delegate;
+
+@end

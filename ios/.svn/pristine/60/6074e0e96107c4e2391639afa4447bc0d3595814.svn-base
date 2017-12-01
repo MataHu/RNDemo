@@ -1,0 +1,14 @@
+//
+//  ForgetServicePasswordView.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/20.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ForgetServicePasswordView : UIView
+@property (nonatomic, copy) void (^btnCallBack)();
+
+@end

@@ -1,0 +1,167 @@
+//
+//  MineViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "MineViewController.h"
+#import "PersonalInformationViewController.h"
+#import "SetViewController.h"
+#import "BorrowingRecordViewController.h"
+#import "BorrowDetailViewController.h"
+#import "ConfirmBorrowListViewController.h"
+#import "HasPriceMidView.h"
+
+@interface MineViewController ()
+@property (nonatomic, strong) UIButton *rightBtn;
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIView *midView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *midViewHeight;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (nonatomic, assign) borrowCashState borrowCashState;
+
+@end
+
+@implementation MineViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    //设置navgationbar背景图片(透明)
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0]] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationItem.title = @"我的";
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+    
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+}
+
+-(void)dealloc {
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+  
+    [self setTop];
+    
+    
+    [self setMidView];
+    
+    //设置圆角
+    [self setCornerRadius];
+    
+    //添加手势
+    [self addGestures];
+}
+
+/**
+ 设置中间View
+ */
+- (void)setMidView {
+    self.borrowCashState = hasTransfer;
+    if (self.borrowCashState == hasTransfer) {
+        //已下款
+        HasPriceMidView *hasV = [HasPriceMidView viewFromXid];
+        hasV.frame = self.midView.bounds;
+        [self.midView addSubview:hasV];
+    }
+}
+/**
+ 添加手势
+ */
+- (void)addGestures {
+    self.iconImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *iconTapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(personalInfo)];
+    [self.iconImageView addGestureRecognizer:iconTapGes];
+    
+    UITapGestureRecognizer *borrowTapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(borrowDetail)];
+    [self.midView addGestureRecognizer:borrowTapGes];
+    
+    UITapGestureRecognizer *bottomTapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(borrowRecord)];
+    [self.bottomView addGestureRecognizer:bottomTapGes];
+}
+/**
+ 借款详情
+ */
+- (void)borrowDetail {
+    BorrowDetailViewController *detailVc = [[BorrowDetailViewController alloc] init];
+    [self.navigationController pushViewController:detailVc animated:YES];
+}
+/**
+ 借款记录
+ */
+-(void)borrowRecord {
+    BorrowingRecordViewController *boVc = [[BorrowingRecordViewController alloc] init];
+    [self.navigationController pushViewController:boVc animated:YES];
+}
+
+/**
+ 个人信息
+ */
+- (void)personalInfo {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"PersonalInformationViewController" bundle:nil];
+    PersonalInformationViewController *personalVc = [sb instantiateInitialViewController];
+    [self.navigationController pushViewController:personalVc animated:YES];
+}
+
+/**
+ 设置圆角
+ */
+- (void)setCornerRadius {
+    self.topView.layer.cornerRadius = 5;
+    self.topView.layer.masksToBounds = YES;
+    
+    self.midView.layer.cornerRadius = 2.5;
+    self.midView.layer.masksToBounds = YES;
+    
+    self.bottomView.layer.cornerRadius = 2.5;
+    self.bottomView.layer.masksToBounds = YES;
+}
+
+/**
+ 去借款
+ */
+- (IBAction)toBorrow:(id)sender {
+    ConfirmBorrowListViewController *cbVc = [[ConfirmBorrowListViewController alloc] init];
+    [self.navigationController pushViewController:cbVc animated:YES];
+}
+/**
+ 前往个人信息
+ */
+- (IBAction)towardPersonalInfo:(id)sender {
+    [self personalInfo];
+}
+-(void)setTop {
+  
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setImage:[UIImage imageNamed:@"set"] forState:UIControlStateNormal];
+    self.rightBtn = rightBtn;
+    [rightBtn addTarget:self action:@selector(set) forControlEvents:UIControlEventTouchUpInside];
+    rightBtn.size = CGSizeMake(20, 20);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+}
+/**
+ 设置
+ */
+- (void)set {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"SetViewController" bundle:nil];
+    SetViewController *setVc = [sb instantiateInitialViewController];
+    [self.navigationController pushViewController:setVc animated:YES];
+}
+
+@end

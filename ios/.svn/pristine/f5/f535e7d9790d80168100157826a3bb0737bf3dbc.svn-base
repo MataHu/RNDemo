@@ -1,0 +1,157 @@
+//
+//  ConfirmBorrowListViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/21.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "ConfirmBorrowListViewController.h"
+
+@interface ConfirmBorrowListViewController ()
+@property (weak, nonatomic) IBOutlet UIView *detailView;
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+
+/**
+ 贷款金额500
+ */
+@property (weak, nonatomic) IBOutlet UIButton *FiveHundredloanAmountBtn;
+/**
+ 贷款金额1000
+ */
+@property (weak, nonatomic) IBOutlet UIButton *OnethousandloanAmountBtn;
+/**
+ 贷款期限7天
+ */
+@property (weak, nonatomic) IBOutlet UIButton *sevenDay;
+/**
+ 贷款期限14天
+ */
+@property (weak, nonatomic) IBOutlet UIButton *fourteenDay;
+@end
+//字体颜色
+static NSInteger normalTexColor = 0x808080;
+static NSInteger selTexColor = 0x5BB69A;
+
+//边角颜色
+static NSInteger normalBorderColor = 0xC2C2C2;
+static NSInteger selBorderColor = 0x1ABC9C;
+
+@implementation ConfirmBorrowListViewController
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    //设置navgationbar背景图片(透明)
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0]] forBarMetrics:UIBarMetricsDefault];
+    
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+   
+    //设置圆角
+    [self setCornerRadius];
+    
+    //设置按钮状态
+    [self setButtonState];
+}
+/**
+ 设置圆角
+ */
+-(void)setCornerRadius {
+    self.detailView.layer.cornerRadius = 5;
+    self.detailView.layer.masksToBounds = YES;
+    
+    self.confirmBtn.layer.cornerRadius = 5;
+    self.confirmBtn.layer.masksToBounds = YES;
+    
+    self.sevenDay.layer.cornerRadius = 3;
+    self.sevenDay.layer.masksToBounds = YES;
+    
+    self.fourteenDay.layer.cornerRadius = 3;
+    self.fourteenDay.layer.masksToBounds = YES;
+    
+    self.FiveHundredloanAmountBtn.layer.cornerRadius = 3;
+    self.FiveHundredloanAmountBtn.layer.masksToBounds = YES;
+    
+    self.OnethousandloanAmountBtn.layer.cornerRadius = 3;
+    self.OnethousandloanAmountBtn.layer.masksToBounds = YES;
+    
+}
+/**
+ 设置按钮状态
+ */
+- (void)setButtonState {
+    //默认选择500，14天
+    [self modifyBtnState:self.FiveHundredloanAmountBtn WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+    [self modifyBtnState:self.fourteenDay WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+    
+    [self modifyBtnState:self.OnethousandloanAmountBtn WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+    [self modifyBtnState:self.sevenDay WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+    
+}
+/**
+ 贷款额度
+ */
+- (IBAction)loanAmountSelect:(UIButton *)sender {
+    if (sender.tag == 500) {
+        [self modifyBtnState:self.FiveHundredloanAmountBtn WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+        [self modifyBtnState:self.OnethousandloanAmountBtn WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+        
+    } else if (sender.tag == 1000) {
+        
+        [self modifyBtnState:self.FiveHundredloanAmountBtn WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+        [self modifyBtnState:self.OnethousandloanAmountBtn WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+        
+    }
+}
+/**
+ 贷款期限
+ */
+- (IBAction)loadTimeLimit:(UIButton *)sender {
+    if (sender.tag == 7) {
+        [self modifyBtnState:self.sevenDay WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+        [self modifyBtnState:self.fourteenDay WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+        
+        
+    } else if (sender.tag == 14) {
+        [self modifyBtnState:self.sevenDay WithTexColor:normalTexColor AndBorderColor:normalBorderColor AndBackGroundImage:[UIImage imageNamed:@""]];
+        [self modifyBtnState:self.fourteenDay WithTexColor:selTexColor AndBorderColor:selBorderColor AndBackGroundImage:[UIImage imageNamed:@"choose_list"]];
+        
+    }
+}
+
+/**
+ 修改按钮的颜色和背景图片
+ @param btn 按钮
+ @param texColor 字体颜色
+ @param borderColor 边角颜色
+ */
+- (void)modifyBtnState:(UIButton *)btn  WithTexColor:(NSInteger )texColor AndBorderColor:(NSInteger )borderColor AndBackGroundImage:(UIImage *)image{
+    [btn setTitleColor:UIColorFromRGB(texColor) forState:(UIControlStateNormal)];
+    [btn setBackgroundImage:image forState:(UIControlStateNormal)];
+    ViewBorder(btn, 1, UIColorFromRGB(borderColor));
+}
+/**
+ 确认借单
+ */
+- (IBAction)confirmClick:(id)sender {
+    
+}
+
+
+
+@end

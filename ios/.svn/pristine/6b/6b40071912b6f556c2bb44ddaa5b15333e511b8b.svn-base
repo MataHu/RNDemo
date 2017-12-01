@@ -1,0 +1,75 @@
+//
+//  MineViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "MineViewController.h"
+
+@interface MineViewController ()
+@property (nonatomic, strong) UIButton *rightBtn;
+@property (weak, nonatomic) IBOutlet UIView *availableAmountView;
+@property (weak, nonatomic) IBOutlet UIView *topAmountView;
+@property (weak, nonatomic) IBOutlet UIView *availableProgressView;
+
+@end
+
+@implementation MineViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    //设置navgationbar背景图片(透明)
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0]] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"我的";
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+    
+    [self setTop];
+    
+    //设置圆角
+    [self setCornerRadius];
+}
+/**
+ 设置圆角
+ */
+- (void)setCornerRadius {
+    self.availableAmountView.layer.cornerRadius = 5;
+    self.availableAmountView.layer.masksToBounds = YES;
+    
+    self.topAmountView.layer.cornerRadius = 2.5;
+    self.topAmountView.layer.masksToBounds = YES;
+    
+    self.availableProgressView.layer.cornerRadius = 2.5;
+    self.availableProgressView.layer.masksToBounds = YES;
+}
+
+-(void)setTop {
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBtn setImage:[UIImage imageNamed:@"set"] forState:UIControlStateNormal];
+    self.rightBtn = rightBtn;
+    [rightBtn addTarget:self action:@selector(set) forControlEvents:UIControlEventTouchUpInside];
+    rightBtn.size = CGSizeMake(20, 20);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+}
+/**
+ 设置
+ */
+- (void)set {
+    
+}
+
+@end

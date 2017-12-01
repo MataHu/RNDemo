@@ -1,0 +1,25 @@
+//
+//  SetViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "SetViewController.h"
+
+@interface SetViewController ()
+
+@end
+
+@implementation SetViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.navigationItem.title = @"设置";
+}
+
+
+
+@end

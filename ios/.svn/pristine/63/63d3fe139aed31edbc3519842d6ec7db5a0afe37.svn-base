@@ -1,0 +1,64 @@
+//
+//  IINavigationController.m
+//  isInvested
+//
+//  Created by Blue on 16/8/8.
+//  Copyright © 2016年 Blue. All rights reserved.
+//
+
+#import "IINavigationController.h"
+#import "UIBarButtonItem+Extension.h"
+
+@implementation IINavigationController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // 导航栏背景view
+//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationBar_bg"]
+//                             forBarMetrics:UIBarMetricsDefault];
+//    [Util getNavigationBarTitile:self.navigationController];
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"WhetherOrNotNight"]) {
+//        self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0x2180be);
+//        self.view.backgroundColor = UIColorFromRGB(0xf1f2f4);
+//    }else{
+//        self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0x1e2127);
+//        self.view.backgroundColor = UIColorFromRGB(0x121518);
+//    }
+
+    // 去除1px阴影线
+    [self.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
+    
+    // 设置导航栏标题文字的颜色
+    NSDictionary *textAttrs = @{ NSForegroundColorAttributeName : [UIColor blackColor],
+                                 NSFontAttributeName : [UIFont boldSystemFontOfSize:17] };
+    [[UINavigationBar appearance] setTitleTextAttributes:textAttrs];
+    
+    // 边缘滑动代理
+    self.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (void)pushViewController:(nonnull UIViewController *)viewController animated:(BOOL)animated {
+    
+    viewController.hidesBottomBarWhenPushed = self.childViewControllers.count;
+    [super pushViewController:viewController animated:animated];
+    
+    // 不是导航控制器的根控制器才需要设置返回按钮
+    if (self.childViewControllers.count > 1) {
+        viewController.navigationItem.leftBarButtonItem =
+        [UIBarButtonItem itemWithTarget:self action:@selector(clickedBack) image:@"back"];
+    }
+}
+
+- (void)clickedBack {
+    [self popViewControllerAnimated:YES];
+}
+
+#pragma mark - <UIGestureRecognizerDelegate>
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return self.childViewControllers.count > 1;
+}
+
+@end

@@ -1,0 +1,101 @@
+//
+//  FeedBackViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/18.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "FeedBackViewController.h"
+#import "PickViewToolViewController.h"
+
+@interface FeedBackViewController ()<UITextViewDelegate,PickViewToolViewControllerDegate>
+@property (weak, nonatomic) IBOutlet UITextView *feedBackTextView;
+@property (weak, nonatomic) IBOutlet UILabel *textLengthCount;
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UIButton *selectTypeBtn;
+
+
+
+@end
+
+@implementation FeedBackViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initSubView];
+}
+/**
+ 添加pickView
+ */
+- (void)addPickView {
+    NSMutableArray *dataArr = [NSMutableArray arrayWithObjects:@"借款",@"认证",@"还款",@"其他", nil];
+    [Util addPickViewWithNumberOfComponents:1 AndDataArr:dataArr InController:self AndControllerType:feedBack];
+}
+/**
+ 初始化信息
+ */
+- (void)initSubView {
+    self.navigationItem.title = @"意见反馈";
+    
+    self.feedBackTextView.delegate = self;
+    self.feedBackTextView.text = @"请输入您的反馈意见，我们将进行及时解决";
+    self.feedBackTextView.textColor = UIColorFromRGB(0xB5B5B5);
+    self.feedBackTextView.font = PingFangFont(15);
+    
+    self.submitBtn.layer.cornerRadius = 5;
+    self.submitBtn.layer.masksToBounds = YES;
+}
+/**
+ 提交
+ */
+- (IBAction)submit:(id)sender {
+    
+}
+/**
+ 选择意见类型
+ */
+- (IBAction)selectType:(id)sender {
+    [self.feedBackTextView resignFirstResponder];
+    [self addPickView];
+
+}
+#pragma mark - UITextViewDelegate
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if(textView.text.length < 1){
+        textView.text = @"请输入您的反馈意见，我们将进行及时解决";
+        textView.textColor = UIColorFromRGB(0xB5B5B5);
+    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    if([textView.text isEqualToString:@"请输入您的反馈意见，我们将进行及时解决"]){
+        textView.text=@"";
+        textView.textColor=[UIColor blackColor];
+    }
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    self.textLengthCount.text = [NSString stringWithFormat:@"%lu/200",(unsigned long)textView.text.length];
+}
+#pragma mark - PickViewToolViewControllerDegate
+/**
+ 取消选择
+ */
+- (void)cancelSelected {
+    [self.pickVc.view removeFromSuperview];
+    [self.coverView removeFromSuperview];
+}
+/**
+ 确认选择
+ */
+- (void)confirmlSelectedWithSelectTitle1:(NSString *)title1 andSelectTitle2:(NSString *)title2 {
+    [self.pickVc.view removeFromSuperview];
+    [self.coverView removeFromSuperview];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.feedBackTextView resignFirstResponder];
+}
+
+@end

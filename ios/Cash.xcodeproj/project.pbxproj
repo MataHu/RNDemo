@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43F0C28BF09F0623FBC751D0 /* libPods-Cash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3381BAAF1BC16C38EA97E2A3 /* libPods-Cash.a */; };
+		AE78A8241F68C8700013E1CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE78A8231F68C8700013E1CB /* main.m */; };
+		AE78A82A1F68C8700013E1CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE78A8291F68C8700013E1CB /* ViewController.m */; };
+		AE78A82D1F68C8700013E1CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE78A82B1F68C8700013E1CB /* Main.storyboard */; };
+		AE78A82F1F68C8700013E1CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE78A82E1F68C8700013E1CB /* Assets.xcassets */; };
+		AE78A8611F68C9A80013E1CB /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE78A8601F68C9A80013E1CB /* AppDelegate.mm */; };
+		DA3B4B041FC42F1800EF0B6C /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3B4B061FC42F1800EF0B6C /* libReact.a */; };
+		DA92B7781FC5160700C796CD /* libYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA92B7791FC5160700C796CD /* libYoga.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DABD33A71FBD3BF20017FF87 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0229D05F54A50B6CC13EF941 /* libPods-NotificationService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NotificationService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A2EEDC41F97B0FB00D3CE42 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A2EEDC51F97B0FB00D3CE42 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A2EEDC61F97B0FB00D3CE42 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A31CEBA1F963C20003DB3E6 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3CCA571F93A718004A55ED /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3CCA581F93A718004A55ED /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3CCA591F93A718004A55ED /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3CCA6F1F94D572004A55ED /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3CCA701F94D572004A55ED /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A3CCA711F94D572004A55ED /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A42F0331F9A01C400D7D1C8 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A42F0341F9A01C400D7D1C8 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A42F0351F9A01C400D7D1C8 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4C540B1FA0AB91000563C1 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4C540C1FA0AB91000563C1 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A4C540D1FA0AB91000563C1 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A52DE0B1F988C3B0049F24C /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A52DE0C1F988C3B0049F24C /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A52DE0D1F988C3B0049F24C /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A552CF81F97529700239444 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A59DFAB1FA7151E0023F442 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A59DFAC1FA7151E0023F442 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A59DFAD1FA7151E0023F442 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A70B5421FAB26EA000C16D4 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A70B5431FAB26EA000C16D4 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A70B5441FAB26EA000C16D4 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC51BC91F8BC1960041CC5D /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC51BCF1F8BC26E0041CC5D /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC51BDA1F8BC3DD0041CC5D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		2AC51BF41F8CAA130041CC5D /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AC51BF61F8CAB1B0041CC5D /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD6768E1FA81B66007AE960 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD6768F1FA81B66007AE960 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AD676901FA81B66007AE960 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3381BAAF1BC16C38EA97E2A3 /* libPods-Cash.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cash.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3883CC59E07EAD8DECF1D93A /* Pods-Cash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cash/Pods-Cash.debug.xcconfig"; sourceTree = "<group>"; };
+		4DADC0998727C4698FEFC382 /* Pods-NotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotificationService/Pods-NotificationService.release.xcconfig"; sourceTree = "<group>"; };
+		AE1671B942C334672AF29FD9 /* Pods-GeTui.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeTui.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeTui/Pods-GeTui.debug.xcconfig"; sourceTree = "<group>"; };
+		AE4346C01F74A22400955BFF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		AE4346C21F74A23A00955BFF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AE78A81F1F68C8700013E1CB /* Cash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE78A8231F68C8700013E1CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AE78A8281F68C8700013E1CB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AE78A8291F68C8700013E1CB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AE78A82C1F68C8700013E1CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE78A82E1F68C8700013E1CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE78A8331F68C8700013E1CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE78A85F1F68C9A80013E1CB /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AE78A8601F68C9A80013E1CB /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		AE7CC1EA1F74BC3C00A4407A /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7CC1F91F74C11F00A4407A /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7CC1FA1F74C11F00A4407A /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7CC1FD1F74C1B500A4407A /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE7CC1FE1F74C1B500A4407A /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B061FC42F1800EF0B6C /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B071FC42F1800EF0B6C /* libyoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libyoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B101FC430FC00EF0B6C /* libAFNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAFNetworking.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B111FC430FC00EF0B6C /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B121FC430FC00EF0B6C /* libMeiqia.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMeiqia.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B131FC430FC00EF0B6C /* libMJExtension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJExtension.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B141FC430FC00EF0B6C /* libMJRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMJRefresh.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B151FC430FC00EF0B6C /* libPods-NotificationService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-NotificationService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B161FC430FC00EF0B6C /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3B4B171FC430FC00EF0B6C /* libTYCyclePagerView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libTYCyclePagerView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA65C8281FBD76EB001DF829 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA65C8291FBD76EB001DF829 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA65C82A1FBD76EB001DF829 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA65C82E1FBD7742001DF829 /* MGBaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGBaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA65C82F1FBD7742001DF829 /* MGIDCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGIDCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA65C8301FBD7742001DF829 /* MGLivenessDetection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MGLivenessDetection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA6D24711FD0F9A8003A096F /* Cash.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = Cash.entitlements; path = Cash/Cash.entitlements; sourceTree = "<group>"; };
+		DA92B7791FC5160700C796CD /* libYoga.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libYoga.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22C27EABFF2FB0F01DB05E9 /* Pods-Cash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cash/Pods-Cash.release.xcconfig"; sourceTree = "<group>"; };
+		FB048B25AF69903A59B7C93A /* Pods-GeTui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeTui.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeTui/Pods-GeTui.release.xcconfig"; sourceTree = "<group>"; };
+		FD076A93CB13954D10C0A627 /* libPods-GeTui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeTui.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFCC7510D59A0D1C948B795C /* Pods-NotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotificationService.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NotificationService/Pods-NotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AE78A81C1F68C8700013E1CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA92B7781FC5160700C796CD /* libYoga.a in Frameworks */,
+				DA3B4B041FC42F1800EF0B6C /* libReact.a in Frameworks */,
+				43F0C28BF09F0623FBC751D0 /* libPods-Cash.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AE78A8161F68C8700013E1CB = {
+			isa = PBXGroup;
+			children = (
+				DA6D24711FD0F9A8003A096F /* Cash.entitlements */,
+				AE78A8211F68C8700013E1CB /* Cash */,
+				AE78A8201F68C8700013E1CB /* Products */,
+				EABEBCA7CA414E5633E0D023 /* Pods */,
+				D9F163677FEE0C2F5387B91A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AE78A8201F68C8700013E1CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AE78A81F1F68C8700013E1CB /* Cash.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AE78A8211F68C8700013E1CB /* Cash */ = {
+			isa = PBXGroup;
+			children = (
+				AE78A85F1F68C9A80013E1CB /* AppDelegate.h */,
+				AE78A8601F68C9A80013E1CB /* AppDelegate.mm */,
+				AE78A8281F68C8700013E1CB /* ViewController.h */,
+				AE78A8291F68C8700013E1CB /* ViewController.m */,
+				AE78A82B1F68C8700013E1CB /* Main.storyboard */,
+				AE78A82E1F68C8700013E1CB /* Assets.xcassets */,
+				AE78A8331F68C8700013E1CB /* Info.plist */,
+				AE78A8221F68C8700013E1CB /* Supporting Files */,
+			);
+			path = Cash;
+			sourceTree = "<group>";
+		};
+		AE78A8221F68C8700013E1CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AE78A8231F68C8700013E1CB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9F163677FEE0C2F5387B91A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA92B7791FC5160700C796CD /* libYoga.a */,
+				DA3B4B101FC430FC00EF0B6C /* libAFNetworking.a */,
+				DA3B4B111FC430FC00EF0B6C /* libIQKeyboardManager.a */,
+				DA3B4B121FC430FC00EF0B6C /* libMeiqia.a */,
+				DA3B4B131FC430FC00EF0B6C /* libMJExtension.a */,
+				DA3B4B141FC430FC00EF0B6C /* libMJRefresh.a */,
+				DA3B4B151FC430FC00EF0B6C /* libPods-NotificationService.a */,
+				DA3B4B161FC430FC00EF0B6C /* libSDWebImage.a */,
+				DA3B4B171FC430FC00EF0B6C /* libTYCyclePagerView.a */,
+				DA3B4B061FC42F1800EF0B6C /* libReact.a */,
+				DA3B4B071FC42F1800EF0B6C /* libyoga.a */,
+				DA65C82E1FBD7742001DF829 /* MGBaseKit.framework */,
+				DA65C82F1FBD7742001DF829 /* MGIDCard.framework */,
+				DA65C8301FBD7742001DF829 /* MGLivenessDetection.framework */,
+				DA65C8281FBD76EB001DF829 /* MGBaseKit.framework */,
+				DA65C8291FBD76EB001DF829 /* MGIDCard.framework */,
+				DA65C82A1FBD76EB001DF829 /* MGLivenessDetection.framework */,
+				2A70B5421FAB26EA000C16D4 /* MGBaseKit.framework */,
+				2A70B5431FAB26EA000C16D4 /* MGIDCard.framework */,
+				2A70B5441FAB26EA000C16D4 /* MGLivenessDetection.framework */,
+				2AD6768E1FA81B66007AE960 /* MGBaseKit.framework */,
+				2AD6768F1FA81B66007AE960 /* MGIDCard.framework */,
+				2AD676901FA81B66007AE960 /* MGLivenessDetection.framework */,
+				2A59DFAB1FA7151E0023F442 /* MGBaseKit.framework */,
+				2A59DFAC1FA7151E0023F442 /* MGIDCard.framework */,
+				2A59DFAD1FA7151E0023F442 /* MGLivenessDetection.framework */,
+				2A4C540B1FA0AB91000563C1 /* MGBaseKit.framework */,
+				2A4C540C1FA0AB91000563C1 /* MGIDCard.framework */,
+				2A4C540D1FA0AB91000563C1 /* MGLivenessDetection.framework */,
+				2A42F0331F9A01C400D7D1C8 /* MGBaseKit.framework */,
+				2A42F0341F9A01C400D7D1C8 /* MGIDCard.framework */,
+				2A42F0351F9A01C400D7D1C8 /* MGLivenessDetection.framework */,
+				2A52DE0B1F988C3B0049F24C /* MGBaseKit.framework */,
+				2A52DE0C1F988C3B0049F24C /* MGIDCard.framework */,
+				2A52DE0D1F988C3B0049F24C /* MGLivenessDetection.framework */,
+				2A2EEDC41F97B0FB00D3CE42 /* MGBaseKit.framework */,
+				2A2EEDC51F97B0FB00D3CE42 /* MGIDCard.framework */,
+				2A2EEDC61F97B0FB00D3CE42 /* MGLivenessDetection.framework */,
+				2A552CF81F97529700239444 /* MGLivenessDetection.framework */,
+				2A31CEBA1F963C20003DB3E6 /* MGLivenessDetection.framework */,
+				2A3CCA6F1F94D572004A55ED /* MGBaseKit.framework */,
+				2A3CCA701F94D572004A55ED /* MGIDCard.framework */,
+				2A3CCA711F94D572004A55ED /* MGLivenessDetection.framework */,
+				2A3CCA571F93A718004A55ED /* MGBaseKit.framework */,
+				2A3CCA581F93A718004A55ED /* MGIDCard.framework */,
+				2A3CCA591F93A718004A55ED /* MGLivenessDetection.framework */,
+				2AC51BF61F8CAB1B0041CC5D /* MGIDCard.framework */,
+				2AC51BF41F8CAA130041CC5D /* Masonry.framework */,
+				2AC51BDA1F8BC3DD0041CC5D /* CoreMotion.framework */,
+				2AC51BCF1F8BC26E0041CC5D /* MGLivenessDetection.framework */,
+				2AC51BC91F8BC1960041CC5D /* MGIDCard.framework */,
+				AE7CC1FD1F74C1B500A4407A /* MGBaseKit.framework */,
+				AE7CC1FE1F74C1B500A4407A /* MGIDCard.framework */,
+				AE7CC1F91F74C11F00A4407A /* MGBaseKit.framework */,
+				AE7CC1FA1F74C11F00A4407A /* MGIDCard.framework */,
+				AE7CC1EA1F74BC3C00A4407A /* MGBaseKit.framework */,
+				AE4346C21F74A23A00955BFF /* AVFoundation.framework */,
+				AE4346C01F74A22400955BFF /* CoreMedia.framework */,
+				3381BAAF1BC16C38EA97E2A3 /* libPods-Cash.a */,
+				FD076A93CB13954D10C0A627 /* libPods-GeTui.a */,
+				0229D05F54A50B6CC13EF941 /* libPods-NotificationService.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EABEBCA7CA414E5633E0D023 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3883CC59E07EAD8DECF1D93A /* Pods-Cash.debug.xcconfig */,
+				E22C27EABFF2FB0F01DB05E9 /* Pods-Cash.release.xcconfig */,
+				AE1671B942C334672AF29FD9 /* Pods-GeTui.debug.xcconfig */,
+				FB048B25AF69903A59B7C93A /* Pods-GeTui.release.xcconfig */,
+				FFCC7510D59A0D1C948B795C /* Pods-NotificationService.debug.xcconfig */,
+				4DADC0998727C4698FEFC382 /* Pods-NotificationService.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AE78A81E1F68C8700013E1CB /* Cash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE78A84C1F68C8700013E1CB /* Build configuration list for PBXNativeTarget "Cash" */;
+			buildPhases = (
+				151D171606861E6A14BA4555 /* [CP] Check Pods Manifest.lock */,
+				AE78A81B1F68C8700013E1CB /* Sources */,
+				AE78A81C1F68C8700013E1CB /* Frameworks */,
+				AE78A81D1F68C8700013E1CB /* Resources */,
+				F5AF3650B700D6066A1287D1 /* [CP] Embed Pods Frameworks */,
+				C8754A976E9C5B7A3D215841 /* [CP] Copy Pods Resources */,
+				DABD33A71FBD3BF20017FF87 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cash;
+			productName = Cash;
+			productReference = AE78A81F1F68C8700013E1CB /* Cash.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE78A8171F68C8700013E1CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = MataHu;
+				TargetAttributes = {
+					AE78A81E1F68C8700013E1CB = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = AE78A81A1F68C8700013E1CB /* Build configuration list for PBXProject "Cash" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = AE78A8161F68C8700013E1CB;
+			productRefGroup = AE78A8201F68C8700013E1CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AE78A81E1F68C8700013E1CB /* Cash */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AE78A81D1F68C8700013E1CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE78A82F1F68C8700013E1CB /* Assets.xcassets in Resources */,
+				AE78A82D1F68C8700013E1CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		151D171606861E6A14BA4555 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8754A976E9C5B7A3D215841 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Cash/Pods-Cash-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/LLPaySDK/LLPaySDK/walletResources.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/Meiqia/Meiqia-SDK-files/MQChatViewController/Assets/MQChatViewAsset.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cash/Pods-Cash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5AF3650B700D6066A1287D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cash/Pods-Cash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AE78A81B1F68C8700013E1CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE78A82A1F68C8700013E1CB /* ViewController.m in Sources */,
+				AE78A8241F68C8700013E1CB /* main.m in Sources */,
+				AE78A8611F68C9A80013E1CB /* AppDelegate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AE78A82B1F68C8700013E1CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AE78A82C1F68C8700013E1CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AE78A84A1F68C8700013E1CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AE78A84B1F68C8700013E1CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AE78A84D1F68C8700013E1CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3883CC59E07EAD8DECF1D93A /* Pods-Cash.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Cash/Cash.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou Juhe Network Technology Co.Ltd. (Q8297TAVAW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+				);
+				INFOPLIST_FILE = Cash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MataHu.Cash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		AE78A84E1F68C8700013E1CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E22C27EABFF2FB0F01DB05E9 /* Pods-Cash.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = Cash/Cash.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hangzhou Juhe Network Technology Co.Ltd. (Q8297TAVAW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+				);
+				INFOPLIST_FILE = Cash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MataHu.Cash;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AE78A81A1F68C8700013E1CB /* Build configuration list for PBXProject "Cash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE78A84A1F68C8700013E1CB /* Debug */,
+				AE78A84B1F68C8700013E1CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE78A84C1F68C8700013E1CB /* Build configuration list for PBXNativeTarget "Cash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE78A84D1F68C8700013E1CB /* Debug */,
+				AE78A84E1F68C8700013E1CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE78A8171F68C8700013E1CB /* Project object */;
+}

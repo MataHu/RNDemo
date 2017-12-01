@@ -1,0 +1,54 @@
+//
+//  LoginViewController.m
+//  CashLoad
+//
+//  Created by 陈浩停 on 2017/9/12.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "BeginUseViewController.h"
+#import "LoginViewController.h"
+#import "RegisterViewController.h"
+
+@interface BeginUseViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *beginUseBtn;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTF;
+
+@end
+
+@implementation BeginUseViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.hidden = NO;
+
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.beginUseBtn.layer.cornerRadius = 5;
+    self.beginUseBtn.layer.masksToBounds =  YES;
+    
+}
+/**
+ 开始使用
+ */
+- (IBAction)beginUseClick:(id)sender {
+    //如果注册过前往登陆，否则前往注册
+//    LoginViewController *lVc = [[LoginViewController alloc] init];
+//    [self.navigationController pushViewController:lVc animated:YES];
+    
+    RegisterViewController *rVc = [[RegisterViewController alloc] init];
+    [self.navigationController pushViewController:rVc animated:YES];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.phoneNumberTF resignFirstResponder];
+}
+
+@end

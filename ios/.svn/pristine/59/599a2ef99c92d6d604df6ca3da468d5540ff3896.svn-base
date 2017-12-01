@@ -1,0 +1,17 @@
+//
+//  Util.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface Util : NSObject
+
+/**
+ 切换根控制器
+ */
++(void)changeWindowRootViewControllerToHomePageViewController;
+@end

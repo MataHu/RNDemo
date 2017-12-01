@@ -1,0 +1,121 @@
+//
+//  PerfectInformationViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "PerfectInformationViewController.h"
+typedef enum {
+    offerType,
+    livePlace,
+    MaritalStatus
+    
+}perfectVcPickViewType ;
+
+@interface PerfectInformationViewController ()<PickViewToolViewControllerDegate>
+@property (weak, nonatomic) IBOutlet UIButton *submitBtn;
+@property (weak, nonatomic) IBOutlet UILabel *offerTypeLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contact1ViewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contact2ViewHeight;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contact1ViewTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contact2ViewTop;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeight;
+@property (weak, nonatomic) IBOutlet UILabel *MaritalStatusLabel;
+
+@property (nonatomic, assign) perfectVcPickViewType pickViewType;
+
+
+@end
+
+@implementation PerfectInformationViewController
+
+
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.navigationItem.title = @"完善信息";
+    self.submitBtn.layer.cornerRadius = 5;
+    self.submitBtn.layer.masksToBounds = YES;
+    
+    if (WIDTH == 320) {
+        self.topViewHeight.constant = 200;
+        self.contact1ViewTop.constant = 15;
+        self.contact2ViewTop.constant = 15;
+        self.contact1ViewHeight.constant = 90;
+        self.contact2ViewHeight.constant = 90;
+    }
+    
+    self.contact1ViewHeight.constant = 0;
+    self.contact2ViewHeight.constant = 0;
+    
+}
+/**
+ 提交
+ */
+- (IBAction)submitClick:(id)sender {
+    
+   
+}
+/**
+ 工作类型
+ */
+- (IBAction)offerTypeClick:(id)sender {
+    self.pickViewType = offerType;
+    NSMutableArray *dataArr = [NSMutableArray arrayWithObjects:@"上班族",@"自由职业",@"学生", nil];
+    [Util addPickViewWithNumberOfComponents:1 AndDataArr:dataArr InController:self AndControllerType:PerfectInformation];
+}
+/**
+ 婚姻状态
+ */
+- (IBAction)MaritalStatusStateClick:(id)sender {
+    self.pickViewType = MaritalStatus;
+    NSMutableArray *dataArr = [NSMutableArray arrayWithObjects:@"已婚",@"未婚", nil];
+    [Util addPickViewWithNumberOfComponents:1 AndDataArr:dataArr InController:self AndControllerType:PerfectInformation];
+}
+#pragma mark - PickViewToolViewControllerDegate
+/**
+ 取消选择
+ */
+- (void)cancelSelected {
+    [self.pickVc.view removeFromSuperview];
+    [self.coverView removeFromSuperview];
+}
+/**
+ 确认选择
+ */
+- (void)confirmlSelectedWithSelectTitle1:(NSString *)title1 andSelectTitle2:(NSString *)title2 {
+    [self.pickVc.view removeFromSuperview];
+    [self.coverView removeFromSuperview];
+    switch (self.pickViewType) {
+        case offerType:
+            self.offerTypeLabel.text = title1;
+            self.offerTypeLabel.textColor = [UIColor blackColor];
+            break;
+        case livePlace:
+            
+            break;
+        case MaritalStatus:
+        {
+            self.MaritalStatusLabel.text = title1;
+            self.offerTypeLabel.textColor = [UIColor blackColor];
+            [UIView animateWithDuration:0.2 animations:^{
+                self.contact1ViewHeight.constant = 90;
+            } completion:^(BOOL finished) {
+                self.contact2ViewHeight.constant = 90;
+            }];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+@end

@@ -1,0 +1,68 @@
+//
+//  DoubleAlertView.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "DoubleAlertView.h"
+
+@interface DoubleAlertView()
+@property (unsafe_unretained, nonatomic) IBOutlet UIView *bgView;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *tipMessageLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *firstBtn;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *secondBtn;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstBtnWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondBtnWidth;
+
+@end
+
+@implementation DoubleAlertView
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    self.autoresizingMask = NO;
+    self.backgroundColor = [UIColor clearColor];
+    self.bgView.layer.cornerRadius = 5;
+    self.bgView.layer.masksToBounds = YES;
+    
+    self.firstBtn.layer.cornerRadius = 3;
+    self.firstBtn.layer.masksToBounds = YES;
+    
+    self.secondBtn.layer.cornerRadius = 3;
+    self.secondBtn.layer.masksToBounds = YES;
+    
+    //适配
+    if (WIDTH == 320) {
+        self.firstBtnWidth.constant = 100;
+        self.secondBtnWidth.constant = 100;
+    }
+}
+/**
+ 设置标题信息
+ */
+- (void)setTitle  {
+    self.tipMessageLabel.text = self.tipMessage;
+    [self.firstBtn setTitle:self.title1 forState:(UIControlStateNormal)];
+    [self.secondBtn setTitle:self.title2 forState:(UIControlStateNormal)];
+}
+/**
+ 第一个按钮点击事件
+ */
+- (IBAction)firstBtnClick:(id)sender {
+    if (_btnCallBack1) {
+        _btnCallBack1();
+    }
+}
+/**
+ 第二个按钮点击事件
+ */
+- (IBAction)secondBtnClick:(id)sender {
+    if (_btnCallBack2) {
+        _btnCallBack2();
+    }
+}
+
+
+@end

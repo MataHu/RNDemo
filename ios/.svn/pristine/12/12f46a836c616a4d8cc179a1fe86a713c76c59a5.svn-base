@@ -1,0 +1,103 @@
+//
+//  RenZhengViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "RenZhengViewController.h"
+#import "RealNameViewController.h"
+#import "PerfectInformationViewController.h"
+#import "PhoneOperatoViewController.h"
+
+@interface RenZhengViewController ()
+
+@end
+
+@implementation RenZhengViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"认证";
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    
+}
+
+#pragma mark UITableViewDelegate
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *sectionView = [[UIView alloc] init];
+    sectionView.backgroundColor = UIColorFromRGB(0xF2F2F2);
+    if (section == 0) {
+        UILabel *mustAdd = [[UILabel alloc] init];
+        mustAdd.text = @"必填信息项";
+        mustAdd.textColor = UIColorFromRGB(0x4D4D4D);
+        mustAdd.font = PingFangFont(15);
+        mustAdd.x = 26;
+        mustAdd.centerY = sectionView.centerY;
+        [mustAdd sizeToFit];
+        [sectionView addSubview:mustAdd];
+        return sectionView;
+    }
+    UILabel *optionAdd = [[UILabel alloc] init];
+    optionAdd.text = @"可选信息项";
+    optionAdd.textColor = UIColorFromRGB(0x4D4D4D);
+    optionAdd.font = PingFangFont(15);
+    optionAdd.x = 26;
+    optionAdd.centerY = sectionView.centerY;
+    [optionAdd sizeToFit];
+    [sectionView addSubview:optionAdd];
+    
+    return sectionView;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0) {
+                NSLog(@"实名认证");
+                {
+                    RealNameViewController *realVc = [[RealNameViewController alloc] init];
+                    [self.navigationController pushViewController:realVc animated:YES];
+                }
+            } else {
+                NSLog(@"完善信息");
+                {
+                    PerfectInformationViewController *perfectVc = [[PerfectInformationViewController alloc] init];
+                    [self.navigationController pushViewController:perfectVc animated:YES];
+                    
+                }
+            }
+            break;
+        case 1:
+            if (indexPath.row == 0) {
+                NSLog(@"手机运营商");
+                {
+                    PhoneOperatoViewController *phoneVc = [[PhoneOperatoViewController alloc] init];
+                    [self.navigationController pushViewController:phoneVc animated:YES];
+                }
+            } else {
+                NSLog(@"芝麻认证");
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+/**
+ 设置尾部和头部背景颜色
+ */
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
+
+{
+    
+    view.tintColor = UIColorFromRGB(0xF2F2F2);
+    
+}
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = UIColorFromRGB(0xF2F2F2);
+    
+}
+@end

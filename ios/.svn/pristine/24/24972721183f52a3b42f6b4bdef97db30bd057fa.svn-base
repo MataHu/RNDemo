@@ -1,0 +1,25 @@
+//
+//  RealNameViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "RealNameViewController.h"
+
+@interface RealNameViewController ()
+
+@end
+
+@implementation RealNameViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"实名认证";
+
+}
+
+
+
+@end

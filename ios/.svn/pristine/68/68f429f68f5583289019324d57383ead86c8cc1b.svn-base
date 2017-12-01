@@ -1,0 +1,23 @@
+//
+//  HttpTool.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "HttpTool.h"
+
+@implementation HttpTool
+
+static HttpTool *instance = nil;
+
++ (instancetype)shareInstance {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            instance = [[HttpTool alloc] init];
+        });
+    return instance;
+}
+
+@end

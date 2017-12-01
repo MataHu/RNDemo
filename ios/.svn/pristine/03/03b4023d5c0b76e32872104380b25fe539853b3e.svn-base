@@ -1,0 +1,112 @@
+//
+//  AlertTool.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "AlertTool.h"
+#import "AlertViewController.h"
+static AlertTool *instance = nil;
+
+@implementation AlertTool
++ (instancetype)shareInstance {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[AlertTool alloc] init];
+    });
+    return instance;
+}
+/**
+ 弹窗提示
+ @param tipMessage 提示信息
+ @param title1 第一个按钮标题
+ @param callBack1 第一个按钮点击事件
+ @param title2 第二个按钮标题,没有就置nil
+ @param callBack2 第二个按钮点击事件,没有就置nil
+ */
++ (void)alertWithTipMessage:(NSString *)tipMessage BtnTitle1:(NSString *)title1 AndMethodCallBack1:(void(^)())callBack1 BtnTitle2:(NSString *)title2 AndMethodCallBack2:(void(^)())callBack2 {
+    // 创建蒙版
+    JRJCoverView *coverView = [[JRJCoverView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    coverView.backgroundColor = [UIColor blackColor];
+    coverView.alpha = 0;
+    [[UIApplication sharedApplication].keyWindow addSubview:coverView];
+    
+    //添加pickView
+    AlertViewController *alertVc = [[AlertViewController alloc] init];
+    if (title1.length != 0 && title2.length != 0) {
+        alertVc.btnNumber = 2;
+    } else {
+        alertVc.btnNumber = 1;
+    }
+    alertVc.coverView = coverView;
+    alertVc.tipMessage = tipMessage;
+    alertVc.title1 = title1;
+    alertVc.title2 = title2;
+    alertVc.btnCallBack1 = callBack1;
+    alertVc.btnCallBack2 = callBack2;
+    [[UIApplication sharedApplication].keyWindow addSubview:alertVc.view];
+    
+    //这里一定要放后面,会调直接viewDidLoad方法,导致标题赋值不成功
+    alertVc.view.frame = CGRectMake(0, 0, WIDTH, HEIGHT);
+
+    //更新标题信息
+    [alertVc updateTitle];
+    
+    // 动画
+    [UIView animateWithDuration:0.25 animations:^{
+        coverView.alpha = 0.55;
+        alertVc.view.alpha = 1;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+/**
+ 忘记服务密码
+ */
++ (void)alertForgetServicePassword {
+    // 创建蒙版
+    JRJCoverView *coverView = [[JRJCoverView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    coverView.backgroundColor = [UIColor blackColor];
+    coverView.alpha = 0;
+    [[UIApplication sharedApplication].keyWindow addSubview:coverView];
+    
+    AlertViewController *alertVc = [[AlertViewController alloc] init];
+        alertVc.btnNumber = 3;
+    alertVc.coverView = coverView;
+    [[UIApplication sharedApplication].keyWindow addSubview:alertVc.view];
+    
+    // 动画
+    [UIView animateWithDuration:0.25 animations:^{
+        coverView.alpha = 0.55;
+        alertVc.view.alpha = 1;
+    } completion:^(BOOL finished) {
+    }];
+}
+/**
+ 关于还款日期
+ */
++ (void)alertRepayPeriodWithSubmitData:(NSString *)submitData ExhaustingData:(NSString *)exhaustingData RepayData:(NSString *)repayData {
+    // 创建蒙版
+    JRJCoverView *coverView = [[JRJCoverView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    coverView.backgroundColor = [UIColor blackColor];
+    coverView.alpha = 0;
+    [[UIApplication sharedApplication].keyWindow addSubview:coverView];
+    
+    AlertViewController *alertVc = [[AlertViewController alloc] init];
+    alertVc.btnNumber = 4;
+    alertVc.coverView = coverView;
+    alertVc.date1 = submitData;
+    alertVc.date2 = exhaustingData;
+    alertVc.date3 = repayData;
+    [[UIApplication sharedApplication].keyWindow addSubview:alertVc.view];
+    [alertVc updateTitle];
+    // 动画
+    [UIView animateWithDuration:0.25 animations:^{
+        coverView.alpha = 0.55;
+        alertVc.view.alpha = 1;
+    } completion:^(BOOL finished) {
+    }];
+}
+@end

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankAccountViewController">
+            <connections>
+                <outlet property="addBankAccountBtn" destination="GVk-7t-0nX" id="p7j-RD-QD3"/>
+                <outlet property="bgView" destination="y10-Jw-f6k" id="6Tv-pR-aNW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y10-Jw-f6k">
+                    <rect key="frame" x="19" y="36" width="337" height="75"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GVk-7t-0nX">
+                            <rect key="frame" x="151" y="19.5" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="9Ei-rH-cQB"/>
+                                <constraint firstAttribute="width" constant="35" id="Dnn-8Y-B74"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="➕"/>
+                            <connections>
+                                <action selector="addBankAccount:" destination="-1" eventType="touchUpInside" id="Vvf-ow-FQt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.70980392156862748" green="0.70980392156862748" blue="0.70980392156862748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="kUJ-TK-czw"/>
+                        <constraint firstItem="GVk-7t-0nX" firstAttribute="centerX" secondItem="y10-Jw-f6k" secondAttribute="centerX" id="qdb-ua-V3G"/>
+                        <constraint firstItem="GVk-7t-0nX" firstAttribute="centerY" secondItem="y10-Jw-f6k" secondAttribute="centerY" id="yG9-HZ-ajB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="y10-Jw-f6k" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="19" id="AFJ-WB-UXz"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="y10-Jw-f6k" secondAttribute="trailing" constant="19" id="Otg-0G-0R5"/>
+                <constraint firstItem="y10-Jw-f6k" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="16" id="RTj-tM-x4u"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

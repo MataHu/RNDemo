@@ -1,0 +1,91 @@
+//
+//  AlertViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "AlertViewController.h"
+#import "SingleAlertView.h"
+#import "DoubleAlertView.h"
+
+@interface AlertViewController ()
+
+@property (nonatomic, strong) SingleAlertView *singleV;
+@property (nonatomic, strong) DoubleAlertView *doubleV;
+
+@end
+
+@implementation AlertViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor clearColor];
+    [self addSubView];
+}
+/**
+ 布置子控件
+ */
+- (void)addSubView {
+    if (self.btnNumber == 1) {
+        SingleAlertView *alertV = [SingleAlertView viewFromXid];
+        alertV.width = WIDTH;
+        alertV.height = 136;
+        alertV.centerY = self.view.centerY;
+        alertV.tipMessage = self.tipMessage;
+        alertV.title1 = self.title1;
+        self.singleV = alertV;
+        alertV.btnCallBack = ^{
+            //移除模糊层
+            [self.coverView removeFromSuperview];
+            [self.view removeFromSuperview];
+            if (self.btnCallBack1) {
+                self.btnCallBack1();
+            }
+        };
+        [self.view addSubview:alertV];
+    } else {
+        DoubleAlertView *alertV = [DoubleAlertView viewFromXid];
+        alertV.width = WIDTH;
+        alertV.height = 136;
+        alertV.centerY = self.view.centerY;
+        alertV.tipMessage = self.tipMessage;
+        alertV.title1 = self.title1;
+        alertV.title2 = self.title2;
+        self.doubleV = alertV;
+        alertV.btnCallBack1 = ^{
+            //移除模糊层
+            [self.coverView removeFromSuperview];
+            [self.view removeFromSuperview];
+            if (self.btnCallBack1) {
+                self.btnCallBack1();
+            }
+        };
+        alertV.btnCallBack2 = ^{
+            //移除模糊层
+            [self.coverView removeFromSuperview];
+            [self.view removeFromSuperview];
+            if (self.btnCallBack2) {
+                self.btnCallBack2();
+            }
+        };
+        
+        [self.view addSubview:alertV];
+    }
+}
+/**
+ 更新标题信息
+ */
+-(void)updateTitle {
+    if (_btnNumber == 1) {
+        //一个按钮的View
+        [self.singleV setTitle];
+    } else {
+        //二个按钮的View
+        [self.doubleV setTitle];
+    }
+}
+
+
+@end

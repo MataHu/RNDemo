@@ -1,0 +1,21 @@
+//
+//  agreeTipLabel.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/20.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+@class agreeTipLabel;
+@protocol agreeTipLabelDelegate <NSObject>
+
+@required
+
+- (void)touchMyLabel:(agreeTipLabel *)myLabel;
+
+@end
+@interface agreeTipLabel : UILabel
+@property (nonatomic, weak) id<agreeTipLabelDelegate> delegate;
+
+@end

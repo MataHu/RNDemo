@@ -1,0 +1,28 @@
+//
+//  Util.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface Util : NSObject
+
+/**
+ 切换根控制器
+ */
++(void)changeWindowRootViewControllerToHomePageViewController;
+/**
+ 添加模糊层
+ */
++(void)addFuzzyLayer;
+
+/**
+ 添加pickView
+ */
++(void)addPickViewWithNumberOfComponents:(NSInteger )numOfComponents AndDataArr:(NSMutableArray *)dataArr InController:(UIViewController *)vc AndControllerType:(pickViewType)picKViewType;
+
++(void)getAdmintoken;
+@end

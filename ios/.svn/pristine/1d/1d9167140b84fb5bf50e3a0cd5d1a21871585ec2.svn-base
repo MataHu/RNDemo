@@ -1,0 +1,41 @@
+//
+//  RegisterViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "RegisterViewController.h"
+
+
+@interface RegisterViewController ()<tipLabelDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *messageTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (weak, nonatomic) IBOutlet tipLabel *serverProtocolLabel;
+
+@end
+
+@implementation RegisterViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"注册";
+    self.confirmBtn.layer.cornerRadius = 5;
+    self.confirmBtn.layer.masksToBounds = YES;
+    self.serverProtocolLabel.delegate = self;
+}
+/**
+ 确定
+ */
+- (IBAction)confirmClick:(id)sender {
+    [Util changeWindowRootViewControllerToHomePageViewController];
+}
+/**
+ 用户服务协议
+ */
+-(void)touchMyLabel:(tipLabel *)myLabel {
+    NSLog(@"注册用户服务协议");
+}
+@end

@@ -1,0 +1,16 @@
+//
+//  HelpCenterTableViewCell.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/18.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface HelpCenterTableViewCell : UITableViewCell
+@property (nonatomic, strong) NSIndexPath *indexpath;
+@property (nonatomic, assign) BOOL isOpen;
+//回调
+@property (nonatomic, copy) void (^extensionCallBack)(BOOL isOpen,NSIndexPath* indexpath);
+@end

@@ -1,0 +1,30 @@
+//
+//  DoubleAlertView.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface DoubleAlertView : UIView
+@property (nonatomic, copy) void (^btnCallBack1)();
+@property (nonatomic, copy) void (^btnCallBack2)();
+
+/**
+ 提示语
+ */
+@property (nonatomic, copy) NSString *tipMessage;
+/**
+ 第一个按钮标题
+ */
+@property (nonatomic, copy) NSString *title1;
+/**
+ 第二个按钮标题
+ */
+@property (nonatomic, copy) NSString *title2;
+
+- (void)setTitle  ;
+
+@end

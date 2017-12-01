@@ -1,0 +1,37 @@
+//
+//  QuestionView.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/21.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "QuestionView.h"
+@interface QuestionView()
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+
+@end
+@implementation QuestionView
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    self.autoresizingMask = NO;
+}
+- (IBAction)know:(id)sender {
+    if (self.btnCallBack) {
+        self.btnCallBack();
+    }
+}
+
+- (void)setTitle  {
+    NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"如：您是%@提交借款申请，借款周期是 14天，但是我们给您下款时间在%@，那 么还款日期是%@哦",self.date1,self.date2,self.date3] attributes:nil];
+    [attStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x1ABC9C) range:NSMakeRange(4, 11)];
+    [attStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x1ABC9C) range:NSMakeRange(43, 11)];
+    [attStr addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x1ABC9C) range:NSMakeRange(attStr.length - 12, 11)];
+    
+    self.dayLabel.attributedText = attStr;
+}
+
+
+@end

@@ -1,0 +1,26 @@
+//
+//  Util.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "Util.h"
+#import "HomePageViewController.h"
+#import "IINavigationController.h"
+#import "AppDelegate.h"
+#import "MainBarViewController.h"
+
+@implementation Util
+/**
+ 切换根控制器到首页
+ */
++(void)changeWindowRootViewControllerToHomePageViewController {
+    MainBarViewController *mainVc = [[MainBarViewController alloc] init];
+    AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    appdelegate.window.rootViewController = mainVc;
+    [appdelegate.window makeKeyAndVisible];
+}
+
+@end

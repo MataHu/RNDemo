@@ -1,0 +1,43 @@
+//
+//  LoginViewController.m
+//  CashLoad
+//
+//  Created by 陈浩停 on 2017/9/12.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "LoginViewController.h"
+#import "MessageLoginViewController.h"
+
+
+@interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+
+@end
+
+@implementation LoginViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"登录";
+    self.loginBtn.layer.cornerRadius = 5;
+    self.loginBtn.layer.masksToBounds = YES;
+    
+}
+/**
+ 登陆
+ */
+- (IBAction)loginClick:(id)sender {
+    [Util changeWindowRootViewControllerToHomePageViewController];
+
+}
+/**
+ 忘记密码
+ */
+- (IBAction)forgetPasswordClick:(id)sender {
+    MessageLoginViewController *meVc = [[MessageLoginViewController alloc] init];
+    [self.navigationController pushViewController:meVc animated:YES];
+}
+
+
+@end

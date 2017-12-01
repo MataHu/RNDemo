@@ -1,0 +1,198 @@
+//
+//  PersonalInformationViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "PersonalInformationViewController.h"
+#import <AVFoundation/AVFoundation.h>
+#import "NickNameViewController.h"
+#import "BankAccountViewController.h"
+
+@interface PersonalInformationViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *bankAccountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *towardImageV;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *towardWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *towardHeight;
+
+@end
+
+@implementation PersonalInformationViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.iconImageView.layer.cornerRadius = self.iconImageView.height * 0.5;
+    self.iconImageView.layer.masksToBounds = YES;
+    
+    self.bankAccountLabel.text = @"333999999999995";
+    self.towardWidth.constant = 17;
+    self.towardHeight.constant = 17;
+    self.towardImageV.image = [UIImage imageNamed:@"edit"];
+
+//    self.bankAccountLabel.text = @"";
+//    self.towardWidth.constant = 8;
+//    self.towardHeight.constant = 13;
+//    self.towardImageV.image = [UIImage imageNamed:@"towards2"];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"个人信息";
+    self.tableView.tableFooterView = [[UIView alloc] init];
+
+}
+
+#pragma mark UITableViewDelegate
+/**
+ 设置尾部和头部背景颜色
+ */
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
+
+{
+    view.tintColor = UIColorFromRGB(0xF2F2F2);
+}
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = UIColorFromRGB(0xF2F2F2);
+    
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:
+            //第一组
+            switch (indexPath.row) {
+                case 0:
+                    //头像
+                    NSLog(@"头像");
+                    [self modifyHeadshot];
+                    break;
+                case 1:
+                    //昵称
+                     NSLog(@"昵称");
+                {
+                    NickNameViewController *nickVc = [[NickNameViewController alloc] init];
+                    [self.navigationController pushViewController:nickVc animated:YES];
+                }
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            //第二组
+            switch (indexPath.row) {
+                case 0:
+                    //真实姓名
+                     NSLog(@"真实姓名");
+                    break;
+                case 1:
+                    //手机号码
+                     NSLog(@"手机号码");
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            //第三组
+            switch (indexPath.row) {
+                case 0:
+                    //身份证号
+                     NSLog(@"身份证号");
+                    break;
+                case 1:
+                    //银行卡号
+                     NSLog(@"银行卡号");
+                {
+                    //如果未绑定-前往绑定
+                    BankAccountViewController *bankVc = [[BankAccountViewController alloc] init];
+                    [self.navigationController pushViewController:bankVc animated:YES];
+                
+                    
+                    //如果已绑定-前往修改
+                }
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+/**
+ 修改头像
+ */
+- (void)modifyHeadshot {
+    /*头像*/
+    NSString *mediaType = AVMediaTypeVideo;
+    AVAuthorizationStatus authorizationStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+    if (authorizationStatus == AVAuthorizationStatusRestricted || authorizationStatus == AVAuthorizationStatusDenied) {
+        /*询问是否允许使用照相机*/
+        UIAlertController * alertC = [UIAlertController alertControllerWithTitle:@"摄像头访问受限" message:@"请去设置中修改权限" preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alertC animated:YES completion:nil];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alertC addAction:action];
+    }else{
+        UIAlertController *alertController = [[UIAlertController alloc] init];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"从手机相册选择" style:0 handler:^(UIAlertAction * _Nonnull action) {
+            
+            // 创建图片选择控制器对象
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+            imagePickerController.navigationBar.tintColor = [UIColor whiteColor];
+            // 设置允许编辑(照片)
+            imagePickerController.allowsEditing = YES;
+            // 设置相册的呈现样式
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            // 设置代理
+            imagePickerController.delegate = self;
+            // 呈现
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:imagePickerController animated:YES completion:nil];
+        }];
+        
+        UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"拍照" style:0 handler:^(UIAlertAction * _Nonnull action) {
+            // 创建图片选择控制器对象
+            UIImagePickerController *imagePickerController = [UIImagePickerController new];
+            imagePickerController.navigationBar.tintColor = [UIColor whiteColor];
+            // 设置允许编辑
+            imagePickerController.allowsEditing = YES;
+            // 设置相册的呈现样式 ---> 从📷中
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            // 设置代理
+            imagePickerController.delegate = self;
+            // 呈现
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:imagePickerController animated:YES completion:nil];
+        }];
+        
+        UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:1 handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alertController addAction:action2];
+        [alertController addAction:action1];
+        [alertController addAction:action3];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertController animated:YES completion:nil];
+        
+    }
+}
+/**
+ 图片返回代理方法
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    //上传图片
+    // 将图片变成data,data进行base64编码成字符串
+    UIImage *resultImage = info[@"UIImagePickerControllerEditedImage"];
+    self.iconImageView.image = resultImage;
+    NSData *imageData = UIImageJPEGRepresentation(resultImage, 0.1);
+    NSString *str = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+
+    
+}
+@end

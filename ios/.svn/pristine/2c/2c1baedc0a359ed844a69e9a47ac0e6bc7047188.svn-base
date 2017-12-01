@@ -1,0 +1,90 @@
+//
+//  HelpCenterTableViewCell.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/18.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "HelpCenterTableViewCell.h"
+
+@interface HelpCenterTableViewCell()
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconimageView;
+@property (weak, nonatomic) IBOutlet UILabel *itemTitle;
+@property (weak, nonatomic) IBOutlet UIButton *extensionB;
+
+
+/**
+ 四个问题Label
+ */
+@property (weak, nonatomic) IBOutlet UILabel *firstQuestionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *secondQuestionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thirdQuestionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fourthQuestionLabel;
+
+@end
+
+@implementation HelpCenterTableViewCell
+
+
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.bgView.layer.cornerRadius = 5;
+    self.bgView.layer.masksToBounds = YES;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+   
+}
+/**
+ 扩展按钮
+ */
+- (IBAction)extensionBtn:(UIButton *)sender {
+    self.isOpen = !self.isOpen;
+    //回调
+    if (self.extensionCallBack) {
+        self.extensionCallBack(self.isOpen, self.indexpath);
+    }
+}
+- (void)setIndexpath:(NSIndexPath *)indexpath {
+    _indexpath = indexpath;
+    switch (indexpath.row) {
+        case 0:
+            self.iconimageView.image = [UIImage imageNamed:@"check_data"];
+            self.itemTitle.text = @"审核资料";
+            break;
+        case 1:
+            self.iconimageView.image = [UIImage imageNamed:@"about_borrow"];
+            self.itemTitle.text = @"借款相关";
+            break;
+        case 2:
+            self.iconimageView.image = [UIImage imageNamed:@"about_repay"];
+            self.itemTitle.text = @"还款管理";
+            break;
+        case 3:
+            self.iconimageView.image = [UIImage imageNamed:@"about_cost"];
+            self.itemTitle.text = @"费用管理";
+            break;
+        case 4:
+            self.iconimageView.image = [UIImage imageNamed:@"about_another"];
+            self.itemTitle.text = @"其他问题";
+            break;
+        default:
+            break;
+    }
+    //还原extensionB按钮状态
+    if (self.isOpen) {
+        //打开
+        [self.extensionB setImage:[UIImage imageNamed:@"back_up"] forState:(UIControlStateNormal)] ;
+    } else {
+        //收起
+        [self.extensionB setImage:[UIImage imageNamed:@"back_down"] forState:(UIControlStateNormal)] ;
+    }
+}
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

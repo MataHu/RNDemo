@@ -1,0 +1,103 @@
+//
+//  HttpTool.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "HttpTool.h"
+@interface HttpTool ()
+
+
+@end
+@implementation HttpTool
+
+static HttpTool *instance = nil;
+
++ (instancetype)shareInstance {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            instance = [[HttpTool alloc] init];
+        });
+    return instance;
+}
+
+-(AFHTTPSessionManager *)mgr{
+    
+    if (_mgr == nil) {
+        // 获得请求管理者
+        AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+        
+        //允许非权威机构颁发的证书
+        mgr.securityPolicy.allowInvalidCertificates = YES;
+        //不验证域名一致性
+        mgr.securityPolicy.validatesDomainName = NO;
+        
+        ////HTTPS SSL的验证，在此处调用上面的代码，给这个证书验证；暂时不用
+        //[mgr setSecurityPolicy:[GGHttpTool customSecurityPolicy]];
+        
+        mgr.requestSerializer.timeoutInterval = 15.0;
+        mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
+        //请求数据类型
+        mgr.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/plain", @"text/javascript", @"text/json", @"text/html",@"charset=UTF-8", nil];
+        
+        _mgr = mgr;
+    }
+    return _mgr;
+}
+
+- (void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure
+{
+    [self.mgr GET:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            
+            NSError *error;
+            NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+            if (error == nil) {
+                success(resultDic);
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self dealWithError:error];
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
+- (void)post:(NSString *)url params:( id)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure {
+    
+   
+    // 发送POST请
+    [self.mgr POST:url parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            NSError *error;
+            NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+            if (error == nil) {
+                success(resultDic);
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self dealWithError:error];
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
+
+-(void)dealWithError:(NSError *)error{
+    NSDictionary *dict = error.userInfo;
+    NSString *key = @"com.alamofire.serialization.response.error.data";
+    if([[dict allKeys] containsObject:key]){
+        NSData *data = dict[key];
+        NSString *errorStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"错误的16进制转化:%@",errorStr);
+    }
+    //    [HUDTool showText:[NSString stringWithFormat:@"开发测试查找问题:%ld",(long)error.code]];
+    if (error.code != -999 && error.code != -1011) {//取消请求的不提示
+        
+    }
+}
+@end

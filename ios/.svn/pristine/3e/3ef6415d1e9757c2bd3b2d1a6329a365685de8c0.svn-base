@@ -1,0 +1,29 @@
+//
+//  ForgetServicePasswordView.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/20.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "ForgetServicePasswordView.h"
+
+@interface ForgetServicePasswordView()
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+@end
+
+@implementation ForgetServicePasswordView
+
+/**
+ 知道了
+ */
+- (IBAction)know:(id)sender {
+    if (self.btnCallBack) {
+        self.btnCallBack();
+    }
+}
+
+
+
+@end

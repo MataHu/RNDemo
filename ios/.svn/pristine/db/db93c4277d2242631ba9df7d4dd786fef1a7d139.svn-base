@@ -1,0 +1,21 @@
+//
+//  HttpTool.h
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface HttpTool : NSObject
+@property (nonatomic, strong)AFHTTPSessionManager *mgr;
+
++ (instancetype)shareInstance ;
+/** get */
+-(void)get:(NSString *)url params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure;
+
+/** post */
+-(void)post:(NSString *)url params:(id )params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure;
+
+@end

@@ -1,0 +1,77 @@
+//
+//  BorrowingRecordViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/20.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "BorrowingRecordViewController.h"
+#import "BorrowingRecordTableViewCell.h"
+@interface BorrowingRecordViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
+
+@end
+static NSString *borrowRecorderId = @"borrowRecorderId";
+@implementation BorrowingRecordViewController
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    //设置navgationbar背景图片(透明)
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0x1ABC9C)] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationItem.title = @"借款记录";
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    NSMutableDictionary *att = [NSMutableDictionary dictionary];
+    [att setObject:[UIColor blackColor] forKey:NSForegroundColorAttributeName];
+    [self.navigationController.navigationBar setTitleTextAttributes:att];
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = UIColorFromRGB(0xF2F2F2);
+    
+    [self addTableView];
+}
+
+/**
+ 添加tableView
+ */
+- (void)addTableView {
+    UITableView *tableView = [[UITableView alloc] init];
+    tableView.frame = CGRectMake(0, 0, WIDTH, HEIGHT);
+    tableView.rowHeight = 100;
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.tableFooterView = [[UIView alloc] init];
+    tableView.backgroundColor = [UIColor clearColor];
+    self.tableView = tableView;
+    [tableView registerNib:[UINib nibWithNibName:NSStringFromClass([BorrowingRecordTableViewCell class]) bundle:nil] forCellReuseIdentifier:borrowRecorderId];
+    [self.view addSubview:tableView];
+}
+
+
+#pragma mark UITableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BorrowingRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:borrowRecorderId];
+    return cell;
+}
+
+
+
+
+@end

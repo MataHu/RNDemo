@@ -1,0 +1,110 @@
+//
+//  SetViewController.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/15.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "SetViewController.h"
+#import "AboutUsViewController.h"
+#import "FeedBackViewController.h"
+#import "HelpCenterViewController.h"
+
+@interface SetViewController ()
+
+@end
+
+@implementation SetViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.navigationItem.title = @"设置";
+}
+
+#pragma mark UITableViewDelegate
+/**
+ 设置尾部和头部背景颜色
+ */
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
+
+{
+    view.tintColor = UIColorFromRGB(0xF2F2F2);
+}
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = UIColorFromRGB(0xF2F2F2);
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //评分地址
+    NSString  * nsStringToOpen = [NSString  stringWithFormat: @"itms-apps://itunes.apple.com/app/id%@?action=write-review",@"1286587750"];
+    switch (indexPath.section) {
+        case 0:
+            //第一组
+            switch (indexPath.row) {
+                case 0:
+                    //头像
+                    NSLog(@"意见反馈");
+                {
+                    FeedBackViewController *feedVc = [[FeedBackViewController alloc] init];
+                    [self.navigationController pushViewController:feedVc animated:YES];
+                }
+                    break;
+                case 1:
+                    //昵称
+                    NSLog(@"帮助中心");
+                {
+                    HelpCenterViewController *helpVc = [[HelpCenterViewController alloc] init];
+                    [self.navigationController pushViewController:helpVc animated:YES];
+                }
+                    
+                    break;
+                case 2:
+                    //昵称
+                    NSLog(@"微信关注");
+                    
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 1:
+            //第二组
+            switch (indexPath.row) {
+                case 0:
+                    //评分
+                    NSLog(@"不错去评分");
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:nsStringToOpen]];
+                    break;
+                case 1:
+                    //关于我们
+                    NSLog(@"关于我们");
+                {
+                    AboutUsViewController *aboutVc = [[AboutUsViewController alloc] init];
+                    [self.navigationController pushViewController:aboutVc animated:YES];
+                }
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            //第三组
+            switch (indexPath.row) {
+                case 0:
+                    //身份证号
+                    NSLog(@"退出登录");
+                    break;
+               
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
+}
+
+
+@end

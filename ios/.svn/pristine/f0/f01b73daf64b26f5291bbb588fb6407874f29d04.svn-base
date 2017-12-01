@@ -1,0 +1,39 @@
+//
+//  tipLabel.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/13.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "tipLabel.h"
+
+@implementation tipLabel
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    [self setLineBreakMode:0|5];
+    self.font = PingFangFont(12);
+    [self setUserInteractionEnabled:YES];
+    [self setNumberOfLines:0];
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:@"开始使用即同意《用户服务协议》"];
+    
+    [attString addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(0x32B16C) range:NSMakeRange(7, 8)];
+    [self setTextColor:UIColorFromRGB(0x919499)];
+    
+    [self setAttributedText:attString];
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if ( [_delegate respondsToSelector:@selector(touchMyLabel:)]) {
+        [_delegate touchMyLabel:self];
+    }
+}
+
+
+@end

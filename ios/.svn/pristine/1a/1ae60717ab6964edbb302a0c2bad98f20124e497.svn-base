@@ -1,0 +1,47 @@
+//
+//  SingleAlertView.m
+//  Cash
+//
+//  Created by 陈浩停 on 2017/9/19.
+//  Copyright © 2017年 陈浩停. All rights reserved.
+//
+
+#import "SingleAlertView.h"
+
+@interface SingleAlertView()
+@property (weak, nonatomic) IBOutlet UILabel *tipMessageLabel;
+@property (weak, nonatomic) IBOutlet UIButton *confirmBtn;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+@end
+
+@implementation SingleAlertView
+
+
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    self.autoresizingMask = NO;
+    self.confirmBtn.layer.cornerRadius = 3;
+    self.confirmBtn.layer.masksToBounds = YES;
+    
+    self.bgView.layer.cornerRadius = 5;
+    self.bgView.layer.masksToBounds = YES;
+    
+   
+}
+
+- (void)setTitle {
+    self.tipMessageLabel.text = self.tipMessage;
+    [self.confirmBtn setTitle:self.title1 forState:(UIControlStateNormal)];
+}
+
+
+
+- (IBAction)confirmClick:(id)sender {
+    if (_btnCallBack) {
+        _btnCallBack();
+    }
+}
+
+
+@end
